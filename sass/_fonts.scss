@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'minion_pro';
+    src: url('../fonts/minionpro-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'intro_regular';
+    src: url('../fonts/intro-webfont.woff2') format('woff2'),
+         url('../fonts/intro-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'playfair_displayregular';
+    src: url('../fonts/playfairdisplay-regular.woff2') format('woff2'),
+         url('../fonts/playfairdisplay-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'playfair_displayblack';
+    src: url('../fonts/playfairdisplay-black-webfont.woff2') format('woff2'),
+         url('../fonts/playfairdisplay-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'intro_rust_gbase_2_line';
+    src: url('../fonts/introrustg-base2line.woff2') format('woff2'),
+         url('../fonts/introrustg-base2line.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$main-font: minion_pro;
+$secondary-font:intro_regular;
+$tertiary-font:playfair_displayregular;
+$tab-title-font:playfair_displayblack;
+$section-title-font: intro_rust_gbase_2_line;
+$icons-font:'Font Awesome 5';

@@ -1,0 +1,64 @@
+@mixin sectionBg($image, $parallax:'false', $height:85vh, $bgcolor:$header-background-color){//mixin for section backgrounds
+	background-image:url("../img/#{$image}");
+	background-repeat: no-repeat;
+	background-position:top center;
+	background-size:cover;
+	background-color:$bgcolor;
+	height:$height; 
+	
+	position: relative;
+	@if $parallax == 'true'{
+		background-attachment: fixed;
+	}@else{
+		background-attachment: scroll;
+	}
+	
+}
+
+@mixin font($font-type, $font-size, $font-color){//mixon for font
+	font-family:$font-type;
+	font-size: $font-size;
+	color:$font-color;
+	
+}
+
+@mixin floatingbeans($image,  $width, $height, $top:auto, $left:auto, $right:auto, $bottom:auto){//damn you floating beans!
+	background:url("../img/#{$image}") 0 0 no-repeat;
+	position:absolute;
+	top:$top;
+	left:$left;
+	right:$right;
+	bottom:$bottom;
+	height:$height;
+	width:$width;
+	z-index:999;
+
+	
+	
+	
+}
+@mixin titleBg($image){//for little images in titles
+	background:url("../img/#{$image}") center center no-repeat;
+}
+
+
+@mixin menu-hover($hover-color){ //used for hovers on menu
+	transition: $transition-3s;
+	&:after{
+	background: $hover-color;
+	content: '';
+    display: block;
+   	width: 0;
+    height: 3px;
+    transition: width .3s;
+	position: absolute;
+	bottom:0;
+	left:0;
+		}	
+		&:hover, &.active, {
+			color:$hover-color;
+			&:after{
+				 width: 100%;
+				}
+			}
+}

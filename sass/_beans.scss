@@ -1,0 +1,60 @@
+//floating beans!
+
+// $image,  $width, $height, $top:auto, $left:auto, $right:auto, $bottom:auto
+
+.floatingbean1{
+	@include floatingbeans('coffebean3_2x.png', 136px, 209px, 20px, 0)
+}
+
+.floatingbean2{
+	@include floatingbeans('coffebean2.png', 108px, 235px, 20%, auto, 0)	
+}
+
+.floatingbean3{
+	@include floatingbeans('bean-3.png', 170px, 200px, auto, 30px, auto, 40%)
+}
+
+
+.floatingbean4{
+	@include floatingbeans('bean-4.png', 228px, 275px, auto, auto, 30px, 0)
+}
+
+
+.floatingbean5{
+	@include floatingbeans('bean-5.png', 374px, 362px, -200px, 15%)
+		
+		
+}
+
+.floatingbean6{
+	@include floatingbeans('bean-6.png', 665px, 778px, -100px, 0)
+
+}
+
+@media #{$tablet} {
+	.floatingbean5{
+		@include floatingbeans('bean-5.png', 40%, 778px, 100px, 0);
+		background-size:contain;
+			
+	}
+}
+
+@media #{$mobile} {
+	.floatingbean1, .floatingbean2, .floatingbean3, .floatingbean4, .floatingbean5, .floatingbean6{
+		display:none;
+	} 
+}
+	
+@media #{$tablet} {
+	.floatingbean1, .floatingbean2, .floatingbean3, .floatingbean4, .floatingbean6{
+		display:none;
+	} 
+}
+
+@media #{$desktop} {
+	
+		.floatingbean1, .floatingbean2, .floatingbean3, .floatingbean4, .floatingbean5,.floatingbean6{
+		display:none;
+	} 
+	
+}

@@ -1,0 +1,639 @@
+body{
+	font-family:$main-font;
+	background-image:url("../img/body-bg.jpg");
+	background-color:$body-color;
+	color:$main-color-text;
+	
+}
+
+section{
+	position: relative;
+}
+
+//helpers
+
+.nomargin{
+	margin:0 !important;
+}
+
+//animations
+
+%animation-menu{
+	transition:all 0.3s;
+		
+}
+
+//margins
+
+//styles for main menu
+
+#nav{
+	height:151px+40px;
+	box-sizing: border-box;
+}
+
+//start header
+
+%right{
+	float:right;
+}
+
+.menu{ //styles for menu items
+	@media #{$mobile} {
+	display:none;
+}
+	
+	@media #{$tablet} {
+		margin-right:20px;
+
+}
+	
+	display:inline-block;
+	@extend %right;
+	margin-right:47px;
+	font-family: $secondary-font;
+	& li{
+		text-transform:uppercase;
+		position:relative;
+		color:$white-text;
+		&.space-menu{
+			width: 2.3vw;
+			background-image:url("../img/menu_separator.png");
+			background-position: center center;
+			background-repeat: no-repeat;
+			
+		}
+	
+	& a{
+		padding:38px 13px 39px 13px;
+		box-sizing: border-box;
+		font-size:12px;
+		color:$white-text;
+		position: relative;
+		@include menu-hover($light-yellow);
+		
+		}
+	
+	}
+}
+
+.phone-menu{//style for phone on the right
+	display: inline-block;
+	margin:1.625rem 0 0 5vw;
+	font-size: 1.625rem;
+	
+		@media #{$mobile} {
+	display:none;
+}
+	@media #{$tablet} {
+	display:none;
+}
+	
+	@media #{$desktop}{
+		display:none;
+	}
+	
+}
+
+%nav-bg{//line on menu
+	background-image:url("../img/line_menu_bg.png");
+	background-repeat: no-repeat;
+	
+	@media #{$mobile} {
+		background:none;	
+	}
+	
+	
+	
+}
+
+.nav-bg-logo{
+	@extend %nav-bg;
+	background-position: center left;
+	background-size: 33px 1px;	
+	@media #{$mobile} {
+		& img{
+			width:80%;
+			height:auto;
+		}
+	}
+}
+
+.nav-bg-menu{
+	@extend %nav-bg;
+	background-position: center right;
+	background-size: calc(100% - 340px) 1px;	
+}
+
+.logo{//logo div
+	display:inline-block;
+	float: left;
+	padding-left:47px;
+	margin-top:20px;
+	@media #{$mobile} {
+		float:none;
+		padding:20px 0;
+		width:70%;
+		margin:0 auto 0 auto;
+		display:block;
+		text-align: center;
+	}
+	
+	@media #{$tablet} {
+		width:30%;
+		& img{
+			width:100%;
+			height:auto;
+		}
+}
+}
+
+
+.header_background{//background style for header
+	@include sectionBg('home_slide.jpg', 'true');
+	min-height:700px;
+	
+	@media #{$mobile} {
+@include sectionBg('home_slide.jpg', 'true', 100vh);
+}
+
+}
+
+
+.gallery_background{//background style for gallery
+	@include sectionBg('gallery-bg.jpg', 'true', auto);
+	min-height:700px; 
+
+}
+
+
+.footer_background{//background style for gallery
+	@include sectionBg('footer-bg.jpg', 'true', '100%');
+	//min-height:700px; 
+
+}
+.slide-home{//colors for slider
+	color:$white-text;
+	text-align: center;
+
+}
+
+.stars-slide{//3 stars on top
+	font-family:$icons-font;
+	width:100px;
+	color:$light-gold;
+	margin-bottom:25px;
+	& i{
+		margin-right:22px;
+		&:nth-child(3){
+			margin-right:0;
+		}
+	}
+}
+
+.subtitle-slide{//subtitle for slide
+	@include font($tertiary-font, 1.2rem, $white-text);
+	margin-bottom:38px;
+	letter-spacing: -0.03rem;
+	background-image:url("../img/subtitle-bg.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	
+	@media #{$mobile} {
+margin-bottom:20px;
+}
+}
+
+.title-slide{//title for slide
+	@include font($section-title-font,  3.70rem, $white-text);
+	margin-bottom:36px;
+	letter-spacing: -0.03rem;
+	
+	@media #{$mobile} {
+		@include font($section-title-font,  2.5rem, $white-text);
+		margin-bottom:20px;
+		line-height:40px;
+	}
+}
+
+.slogan-slide{//slogan for slide
+	@include font($tertiary-font, 1.3125rem, $white-text);
+	margin-bottom:50px;
+	letter-spacing: -0.03rem;
+	background-image:url("../img/slogan_slide_bg.png");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height:63px;
+	@media #{$mobile} {
+	background:none;
+}
+}
+
+.arrow-down{//arrow at the end of slide
+	width:63px;
+	height:63px;
+	border:1px solid $white-text;
+	border-radius:50px;
+	color:$light-yellow;
+	font-size:13px;
+	transition:all 0.2s ease-in;
+	&:hover{
+		border-color:$light-yellow;
+		transform: scale(1.2);
+		& i{
+			color:$white-text;
+		}
+	}
+	& i{
+		margin-top:44%;
+		transition:all 0.2s ease-in;
+	}
+}
+
+
+.slide-separator{//end of slide
+	height:142px;
+	width:100%;
+	position: absolute;
+	bottom:0;
+	background:url('../img/slide_separator.png') no-repeat top center;
+	z-index:2;
+}
+
+.inverted{//invert the slide, i figured it was the same image file
+	transform: rotate(180deg);
+	bottom:-142px;
+}
+
+//end header
+
+//start content
+
+
+
+#programs{//programs id
+	margin-top:6.25rem;
+	position:relative;
+	& .section-title{
+		@include titleBg("../img/programs-title-bg.png");
+	}
+	
+
+
+	background-image:url("../img/programs-bg.png");
+	background-repeat:no-repeat;
+	background-position:100% 100%;
+
+	
+}
+
+//tabs
+
+.tabs-programs{
+	margin-top:62px;
+	background:url("../img/tabs-line.png") 0px 71px no-repeat;
+	background-size:100% 1px;
+	padding:0 0 39px 0;
+	position: relative;
+	& li{
+		width:27%;
+		text-align:center;
+		margin-right:30px;
+		&:nth-child(3){
+			margin-right:0;
+		}
+		& a{
+			position: relative;
+			padding-bottom:30px;
+			@include font($secondary-font, 1.4rem, $light-gray); //choose font and size
+			@media #{$mobile} {
+@include font($secondary-font, 0.8rem, $light-gray); 
+}
+			@include menu-hover($black); //hover menu
+
+	}
+	}
+}
+
+.title{//not sure why i wrote it...
+		@include font($secondary-font, 1.4rem, $black);
+}
+
+.tab-content{//styles for tabs
+	width:100%;
+	opacity:0;
+	display:none;
+	margin:0 auto;
+	position: relative;
+	height:430px;
+	transition: all 0.2s ease-in-out;
+	animation: fadeEffect 1s; 
+
+	& .icon{//padding and whatnot for icons 
+		padding-left:44px;
+		height:32px;
+		line-height: 30px;
+		margin-bottom: 0px;
+	}
+	&.active{
+		display:block;
+		opacity:1;
+	}
+	& button{
+		background-color:$black;
+		@include font($secondary-font, 0.8rem, $white-text);
+		border:0;
+		padding:20px 70px;
+		border-radius:4px;
+		transition: $transition-3s;
+		@media #{$mobile} {
+		width:100%;
+}
+		&:hover{
+			background-color:$light-gray;
+			color:black;
+		}
+	}
+}
+
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+%ico-style{//so we dont repeat as much code
+	background-position: 0 center;
+	background-repeat:no-repeat;
+	
+}
+
+.ico-cert{ //for certificate
+	background-image:url("../img/ico-cert.png");
+	@extend %ico-style;
+}
+
+.ico-mins{ //for mins
+	background-image:url("../img/ico-mins.png");
+	@extend %ico-style;
+}
+
+.price{//for price text
+	@include font($tab-title-font, 3.625rem, $black);
+	& .small-text{
+		font-size: 1.9375rem;
+	}
+}
+
+
+.title-content-program{ // style exclusive for programs
+	display:table;
+	background:url("../img/program-title-line.png") 0px 0px no-repeat;
+	background-size:100% 1px;
+	height:88px;
+	width:100%;
+	margin-bottom:30px;
+	@extend .title-content;
+	& h4{
+		display: table-cell;
+		line-height:25px;
+		vertical-align: bottom;
+	}
+}
+
+.content-program{ //styles for program
+	& p{
+		line-height:1.35;
+		letter-spacing: -0.099px;
+	}
+}
+
+.title-content{// styles for all title contents
+	& h4{
+		@include font($secondary-font, 1.1rem, $black);
+		
+	}
+}
+
+
+//content for tabs
+
+.tab-title-big{
+	font-family:$secondary-font;
+	color:$light-gray2;
+	font-size:200px;
+	z-index:0;
+	text-align:right;
+	right:0;
+	overflow: hidden;
+	line-height: 0.8;
+	@media #{$mobile} {
+font-size:65px;
+		overflow: hidden;
+		text-align:left;
+}
+}
+
+.tab-title{
+	@include font($tab-title-font, 1.9rem, $black);
+}
+
+.tab-inner-content  {
+	position: absolute;
+	top:85px;
+	right:22%;
+	
+	@media #{$mobile} {
+	top:30px;
+	left:0px;
+	width:100%;
+}
+}
+.content-program-table{//dont like boostrap table
+	width:63%;
+	
+	@media #{$mobile} {
+	width:100%;
+	}
+	
+	@media #{$tablet} {
+		width:100%;
+	}
+	
+	& table{
+		width:100%;
+		& tr:hover{
+			background-color:$light-gray;
+			transition: $transition-5s;
+			;
+			& td{
+				color:$white-text;
+			}
+		}
+		& td{
+			padding: 10px 12px 10px 15px;
+			border:1px solid $dark-gray;
+		}
+	}
+	
+}
+
+/*.content-program-table table{
+	width:100%;
+	padding:10px;
+	
+	border:1px solid 
+}*/
+
+.section-title{
+	@include font($section-title-font, 3.125rem, $black);
+	
+	@media #{$mobile} {
+@include font($section-title-font, 2.5rem, $black);
+}
+	text-align: center;
+	margin-bottom:30px;
+}
+
+
+//gallery styles
+
+#gallery{//gallery ID
+	margin-top:1.3rem;
+	padding-top:145px;
+	position:relative;
+	padding-bottom:16%;
+	& .section-title{
+		@include titleBg("../img/gallery-title-bg.png");
+		
+	}
+}
+
+//testimonials styles
+
+#testimonials{
+	margin-top:6rem;
+	position: relative;
+	padding-bottom:108px;
+	text-align:center;
+	& img{
+		display:inline;
+	}
+	
+	& p{
+		width:75%;
+		line-height:30px;
+		margin:25px auto;
+		
+	}
+}
+
+//partners styles
+
+#partners{
+	padding:120px 0;
+	background-color:transparentize($black, 0.9);
+	& .section-title{
+		@include titleBg("../img/partners-title-bg.png");
+		
+	}
+	& .partners-line{
+		width:225px;
+		height:1px;
+		background-color:$dark-gray;
+		margin:40px auto;
+	}
+}
+
+//contact styles
+#contact{
+	padding:140px 0;
+	position: relative;
+	
+	& .section-title{
+		border-bottom:1px solid $dark-gray;
+		padding-bottom: 15px;
+	}
+	
+	@media #{$mobile} {
+padding:50px 0;
+}
+}
+
+
+.content-contact{
+	width:65%;
+	float:right;
+	
+	@media #{$mobile} {
+width:80%;
+	float:none;
+		margin:auto;
+}
+	
+	@media #{$desktop} {
+		width:80%;
+	}
+	display:block;
+		& button{
+		width:301px;
+		height:62px;
+		@include font($secondary-font, 1.2rem, $black);
+		background-image: url("../img/button-bg.png");
+		background-repeat:no-repeat;
+			padding-left: 89px;
+			text-align: left;
+			position:absolute;
+			bottom:0;
+			right:0;
+			border:0;
+			background-color:transparent;
+			
+			@media #{$mobile} {
+				position:relative;
+				margin-top:40px;
+			}
+			
+			@media #{$tablet} {
+				position:relative;
+				margin-top:40px;
+			}
+	}
+	input[type="text"]{
+		@include font($secondary-font, 0.8125rem, $black);
+	padding: 10px 0;
+	width: 90%;
+	background-color: transparent;
+	border-bottom:1px solid $dark-gray;
+	border-top:0px;
+	border-right:0px;
+	border-left:0;
+	transition:all 0.2s ease-out;
+	&:focus, &:hover{
+		border-bottom:1px solid $light-yellow;
+		padding-left:10px;
+	}
+	}
+}
+
+.contact-table{//contact table style
+	border:0.001rem solid transparentize($white-text, 0.8);
+	@include font($secondary-font, 1.1rem, $white-text);
+	& .col-px{
+		padding:2.5rem 0;
+		text-align: center;
+		font-size:0.95rem;
+	}
+	& i{
+		font-size:35px;
+	}
+	
+}
+
+
+//footer styles
+
+footer{
+	padding:130px 0 30px 0;
+	color:$white-text;
+}
